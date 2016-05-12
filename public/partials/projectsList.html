@@ -1,0 +1,92 @@
+ 
+<section class="row-fluid">  
+ <form class="span8">
+ 	<div class="container-fluid">
+            <h1>ProWork--Easy Project Managements </h1>    
+             
+ 	
+ 	
+ 	<ul> <h1>Select the category</h1>   {{testServiceList[0]}}</ul>
+ 	
+ 	<ul>
+ 		
+ 		<select   ng-model='selectedCat'  ng-options='cat.TITLE for cat in projcatList'      ></select>
+ 	</ul>	
+ 	<ul>	
+ 		<input type="button" value="Display projects under the Category" class="btn btn-danger" ng-click='groupingProj()'/>
+
+ 		  <!-- <a href="#" id="LoginWithAmazon"> -->
+  <!-- <img border="0" alt="Login with Amazon" -->
+    <!-- src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png" -->
+    <!-- width="156" height="32" /> -->
+          <!-- </a> -->
+  
+  			
+ 	</ul>
+ 		
+ 		 	<!--	<select   ng-model='selectedProj'  ng-options='project.JOBTITLE for project in projectList'></select>-->
+ 		 	
+ 		 	<select   ng-model='selectedProj'  ng-options='project.JOBTITLE for project in groupedProjList'></select>
+ 			 	
+ 	
+ 		 <ul>
+ 		 	
+ 			
+	 		  	<table  class="table table-striped table-bordered">
+					<thead>
+						<tr>
+						    <td class="tdCenter">Job Number   {{testMe[0].age}}</th>
+						    <td class="tdCenter">Company Name</th>
+						    <td class="tdCenter">Company Code</th>
+
+							<td class="tdCenter">Contact Name</th>
+						    <td class="tdCenter">Job Priority</th>
+						    <td class="tdCenter">Start Date</th>
+							<td class="tdCenter">Due Date</th>
+		   	
+						</tr>
+					</thead>
+					
+					
+					<thead>
+						<tr>
+						    <td class="tdCenter">{{selectedProj.JOBNUMBER}}</th>
+						    <td class="tdCenter">{{selectedProj.COMPANYNAME}} </th>
+						    <td class="tdCenter">{{selectedProj.COMPANYCODE}} </th>
+
+							<td class="tdCenter">{{selectedProj.CONTACTNAME}} </th>
+						    <td class="tdCenter">{{selectedProj.JOBPRIORITY}}</th>
+						    <td class="tdCenter">{{selectedProj.STARTDATE}}</th>
+							<td class="tdCenter">{{selectedProj.DUEDATE}}</th>
+		   	
+						</tr>
+					</thead>
+				</table>
+				<li  ng-repeat='project in groupedProjList' ><a href="#/groupedProjects/{{groupedProjList.indexOf(project)}}">{{project.JOBTITLE}}</a></li>
+
+ 	
+ 	</ul>
+
+
+ 	<div id="amazon-root"></div>
+<script type="text/javascript">
+
+  window.onAmazonLoginReady = function() {
+    amazon.Login.setClientId('amzn1.application-oa2-client.899d60bf65b54bcfb32c16c18a7d2931');
+  };
+  (function(d) {
+    var a = d.createElement('script'); a.type = 'text/javascript';
+    a.async = true; a.id = 'amazon-login-sdk';
+    a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+    d.getElementById('amazon-root').appendChild(a);
+  })(document);
+
+</script>
+ 	
+ 		
+ 	</div>
+ 	
+ 	
+ </form> 
+ 
+</section> 
