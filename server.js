@@ -10,17 +10,17 @@ var methodOverride = require('method-override');
 
 
 
-var ddb=require('dynamodb').ddb({accessKeyId:'AKIAIUQ5OWX24OGOLQ5A',
-	                             secretAccessKey: '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'});
+// var ddb=require('dynamodb').ddb({accessKeyId:'AKIAIUQ5OWX24OGOLQ5A',
+	                             // secretAccessKey: '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'});
 
 
-ddb.listTables({}, function(err, res){
+// ddb.listTables({}, function(err, res){
 
-	 console.log(res);
+	 // console.log(res);
 
-}
+// }
 
-);
+// );
 
 
 // configuration ===============================================================

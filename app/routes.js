@@ -1,5 +1,50 @@
 var Todo = require('./models/todo');
 
+// var  aws= require('aws-sdk');
+// var config = require('./config.js');
+
+var aws = require('aws-sdk');
+// aws.config.region = 'us-east-1';
+
+aws.config.update({accessKeyId: 'AKIAIUQ5OWX24OGOLQ5A', secretAccessKey: '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'});
+aws.config.update({region: 'us-east-1'});
+
+var db = new aws.DynamoDB();
+var dbClient = new aws.DynamoDB.DocumentClient();
+
+
+// AWS.config.update({region: 'us-west-1'});
+
+    dbClient.scan({
+        TableName : "Project-cata",
+        Limit : 5
+    }, function(err, data) {
+        if (err) { console.log(err); return; }
+        console.log(data);
+
+        
+    });
+
+
+
+
+
+var ddb=require('dynamodb').ddb({accessKeyId:'AKIAIUQ5OWX24OGOLQ5A',
+                                 secretAccessKey: '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'});
+
+
+ddb.listTables({}, function(err, res){
+
+     console.log(res);
+
+}
+
+);
+
+//*************************************
+
+
+
 function getTodos(res) {
     Todo.find(function (err, todos) {
 
